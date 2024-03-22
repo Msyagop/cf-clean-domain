@@ -1,0 +1,32 @@
+name: "Check Clean Domains"
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/60 * * * *'
+    
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  tvc-full:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          
+      - name: Execute PHP script
+        run: |
+          php updater.php
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git config credential.helper store
+          git add -A
+          git commit -m "🚀 Updated - $(TZ='Asia/Tehran' date '+%Y-%m-%d %H:%M:%S')"
+          git push
