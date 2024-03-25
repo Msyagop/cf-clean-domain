@@ -3,7 +3,7 @@ name: "Check Clean Domains"
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/60 * * * *'
+    - cron: '*/2880 * * * *'
     
 concurrency:
   group: "pages"
