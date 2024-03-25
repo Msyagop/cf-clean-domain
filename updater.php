@@ -17,7 +17,7 @@ function checkCloudflare($domain) {
 
 function main() {
     $inputFile = 'domains.txt';
-    $count = 400;
+    $count = 600;
 
     $domains = file($inputFile, FILE_IGNORE_NEW_LINES);
 
