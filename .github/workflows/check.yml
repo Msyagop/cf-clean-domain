@@ -1,4 +1,4 @@
-name: "Check Clean Domains"
+name: "Check Domains"
 
 on:
   workflow_dispatch:
