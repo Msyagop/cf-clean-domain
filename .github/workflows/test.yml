@@ -1,9 +1,9 @@
-name: "Check Domains"
+name: "Check Domain"
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/2880 * * * *'
+    - cron: '*/7200 * * * *'
     
 concurrency:
   group: "pages"
