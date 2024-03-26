@@ -2,7 +2,7 @@
 
 function checkCloudflare($domain) {
     try {
-        $response = file_get_contents("http://$domain", false, stream_context_create(["http" => ["timeout" => 5]]));
+        $response = file_get_contents("http://$domain", false, stream_context_create(["http" => ["timeout" => 10]]));
         $headers = $http_response_header;
         foreach ($headers as $header) {
             if (stripos($header, 'Server:') !== false && stripos($header, 'cloudflare') !== false) {
