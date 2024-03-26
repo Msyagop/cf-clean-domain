@@ -1,49 +1,48 @@
 <?php
 
-function check_port($domain, $port) {
-    $sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-    socket_set_option($sock, SOL_SOCKET, SO_SNDTIMEO, array('sec' => 2, 'usec' => 0)); // Timeout for connection attempt
-    $result = socket_connect($sock, $domain, $port);
-    socket_close($sock);
-    if ($result === false) {
+function checkCloudflare($domain) {
+    try {
+        $response = file_get_contents("http://$domain", false, stream_context_create(["http" => ["timeout" => 5]]));
+        $headers = $http_response_header;
+        foreach ($headers as $header) {
+            if (stripos($header, 'Server:') !== false && stripos($header, 'cloudflare') !== false) {
+                return true;
+            }
+        }
         return false;
-    } else {
-        return true;
+    } catch (Exception $e) {
+        return false;
     }
 }
 
 function main() {
-    $domains_file = "china.txt";
-    $ports = array(2052,2086,2082,443,2053,2087,2083); // Example list of ports to check
-    $output_files = array();
-    foreach ($ports as $port) {
-        $output_files[$port] = "result_" . $port . ".txt";
-    }
-    $common_ports_file = "final_result-ch.txt";
-    $common_ports = array();
+    $inputFiles = ['iran.txt', 'china.txt'];
 
-    $domains = file($domains_file, FILE_IGNORE_NEW_LINES);
+    foreach ($inputFiles as $inputFile) {
+        $domains = file($inputFile, FILE_IGNORE_NEW_LINES);
 
-    foreach ($domains as $domain) {
-        foreach ($ports as $port) {
-            if (check_port($domain, $port)) {
-                $output_file = fopen($output_files[$port], "a");
-                fwrite($output_file, $domain . ":" . $port . " - OPEN\n");
-                fclose($output_file);
-                if (!in_array($domain, $common_ports)) {
-                    array_push($common_ports, $domain);
-                }
+        $cloudflareDomains = [];
+        $domainsChecked = 1;
+
+        foreach ($domains as $domain) {
+            $domain = trim($domain);
+            if (checkCloudflare($domain)) {
+                echo "\033[92m$domainsChecked $domain => ok\n";
+                $cloudflareDomains[] = $domain;
+            } else {
+                echo "\033[1;31m$domainsChecked $domain => No\n";
             }
+            $domainsChecked++;
         }
-    }
 
-    $common_ports_file_handle = fopen($common_ports_file, "w");
-    foreach ($common_ports as $domain) {
-        fwrite($common_ports_file_handle, $domain . "\n");
+        file_put_contents($inputFile, "");
+
+        file_put_contents($inputFile, implode("\n", $cloudflareDomains) . PHP_EOL);
+
+        echo "\033[93mCloudflare domains saved to $inputFile\n";
     }
-    fclose($common_ports_file_handle);
 }
 
-main();
 
+main();
 ?>
