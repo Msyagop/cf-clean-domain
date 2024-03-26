@@ -13,13 +13,13 @@ function check_port($domain, $port) {
 }
 
 function main() {
-    $domains_file = "iran.txt";
+    $domains_file = "china.txt";
     $ports = array(2052,2086,2082,443,2053,2087,2083); // Example list of ports to check
     $output_files = array();
     foreach ($ports as $port) {
         $output_files[$port] = "result_" . $port . ".txt";
     }
-    $common_ports_file = "final_result.txt";
+    $common_ports_file = "final_result-ch.txt";
     $common_ports = array();
 
     $domains = file($domains_file, FILE_IGNORE_NEW_LINES);
