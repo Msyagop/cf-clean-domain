@@ -13,7 +13,7 @@ function check_port($domain, $port) {
 }
 
 function main() {
-    $domains_file = "domains.txt";
+    $domains_file = "iran.txt";
     $ports = array(2052,2086,2082,443,2053,2087,2083); // Example list of ports to check
     $output_files = array();
     foreach ($ports as $port) {
