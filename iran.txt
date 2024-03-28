@@ -250,7 +250,6 @@ appliran.ir
 shop.goldwaretech.com
 iranianserver.net
 dadehpardaz.com
-ntt.journals.hozehkh.com
 cle.ir
 livparvaz.com
 amintour.com
@@ -261,7 +260,6 @@ navidraeisi.com
 portal.parsianhost.com
 mehrankala.com
 iranise.ir
-kvn.journals.hozehkh.com
 xn--ugbt9ag.com
 rak.co.ir
 iranicaserver.com
@@ -625,7 +623,6 @@ pesterafsanjan.com
 zafaranpub.com
 zohur.net
 en.ipcgroup.ir
-nameh.hozehkh.com
 dl.padra-tec.ir
 haraznews.com
 Eva-music.ir
