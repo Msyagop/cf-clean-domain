@@ -12,7 +12,6 @@ time.is
 nitecore.com
 console.geetest.com
 russian.people.com.cn
-ci.xiaohongshu.com
 ir.didiglobal.com
 concordiashanghai.org
 klaruslight.com

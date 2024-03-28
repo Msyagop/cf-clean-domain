@@ -71,7 +71,6 @@ hexasoft.ir
 hiapple.ir
 igame.ir
 insc.ir
-ipresta.ir
 jahansanatnews.ir
 kalands.ir
 kanonportal.ir
@@ -135,7 +134,6 @@ wilm.ir
 mashinno.com
 exlenz.com
 supercellstore.ir
-sepidco.ir
 surefiresprinkler.com
 footballfilm.ir
 anasohan.ir
@@ -156,7 +154,6 @@ aghayetavallod.com
 sabaso.ir
 pama.shop
 moblevista.com
-rafooneh.com
 ayseno.com
 adobish.com
 delvinfood.com
@@ -490,7 +487,6 @@ mobileservice.eligasht.com
 marianco.com
 appdana.com
 socialmarcket.com
-tkala.net
 tagrow.net
 up6.ir
 fakhrisariran.com
@@ -505,7 +501,6 @@ agahijat.com
 dubaitor.ir
 vekalatonline.ir
 alosenf.com
-buyspotify.ir
 kaladot.com
 payeshsabt.com
 falnic.net
@@ -769,4 +764,3 @@ digicenter.ir
 ch-iran.org
 ghasrangasht.ir
 qaim.net
-lydaweb.com
